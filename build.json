@@ -1,0 +1,8 @@
+{
+  "css/imprest_management.bundle.css": [
+    "public/css/imprest_management.css"
+  ],
+  "js/imprest_management.bundle.js": [
+    "public/js/imprest_management.js"
+  ]
+}
