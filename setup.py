@@ -12,7 +12,12 @@ setup(
     description="Complete imprest (cash advance) management system for Frappe/ERPNext",
     author="Your Company",
     author_email="info@yourcompany.com",
-    packages=find_packages(),
+    packages=find_packages(
+        include=[
+            "imprest_management",
+            "imprest_management.*",
+        ]
+    ),
     zip_safe=False,
     include_package_data=True,
     install_requires=install_requires
