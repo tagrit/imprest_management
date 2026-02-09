@@ -1,0 +1,62 @@
+[
+ {
+  "doctype": "Workflow",
+  "name": "Imprest Request Approval",
+  "workflow_name": "Imprest Request Approval",
+  "document_type": "Imprest Request",
+  "is_active": 1,
+  "workflow_state_field": "workflow_state",
+  "states": [
+   {
+    "doctype": "Workflow Document State",
+    "state": "Draft",
+    "doc_status": "0",
+    "allow_edit": "Employee"
+   },
+   {
+    "doctype": "Workflow Document State",
+    "state": "Pending Approval",
+    "doc_status": "0",
+    "allow_edit": "System Manager"
+   },
+   {
+    "doctype": "Workflow Document State",
+    "state": "Approved",
+    "doc_status": "1",
+    "allow_edit": "System Manager"
+   },
+   {
+    "doctype": "Workflow Document State",
+    "state": "Rejected",
+    "doc_status": "0",
+    "allow_edit": "System Manager"
+   }
+  ],
+  "transitions": [
+   {
+    "doctype": "Workflow Transition",
+    "state": "Draft",
+    "action": "Submit for Approval",
+    "next_state": "Pending Approval",
+    "allowed": "Employee",
+    "allow_self_approval": 1
+   },
+   {
+    "doctype": "Workflow Transition",
+    "state": "Pending Approval",
+    "action": "Approve",
+    "next_state": "Approved",
+    "allowed": "System Manager",
+    "allow_self_approval": 0
+   },
+   {
+    "doctype": "Workflow Transition",
+    "state": "Pending Approval",
+    "action": "Reject",
+    "next_state": "Rejected",
+    "allowed": "System Manager",
+    "allow_self_approval": 0
+   }
+  ]
+ }
+]

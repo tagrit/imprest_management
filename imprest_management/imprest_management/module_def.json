@@ -1,0 +1,14 @@
+{
+ "creation": "2026-01-29 10:00:00.000000",
+ "docstatus": 0,
+ "doctype": "Module Def",
+ "idx": 0,
+ "modified": "2026-01-29 10:00:00.000000",
+ "modified_by": "Administrator",
+ "module_name": "Imprest Management",
+ "name": "Imprest Management",
+ "owner": "Administrator",
+ "package": "imprest_management",
+ "restrict_to_domain": "",
+ "app_name": "imprest_management"
+}

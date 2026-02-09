@@ -1,0 +1,395 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:IMP-{YYYY}-{#####}",
+ "creation": "2026-01-29 10:00:00",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "basic_information_section",
+  "employee",
+  "employee_name",
+  "company",
+  "posting_date",
+  "column_break_5",
+  "event",
+  "purpose",
+  "cost_center",
+  "title",
+  "expense_details_section",
+  "expense_items",
+  "section_break_10",
+  "total_requested_amount",
+  "approved_amount",
+  "approval_section",
+  "workflow_state",
+  "approver",
+  "column_break_15",
+  "approval_date",
+  "approval_comments",
+  "disbursement_section",
+  "source_account",
+  "disbursement_date",
+  "column_break_20",
+  "disbursement_journal_entry",
+  "accounting_entry_created",
+  "reconciliation_section",
+  "reconciliation_items",
+  "section_break_24",
+  "total_reconciled_amount",
+  "variance_amount",
+  "column_break_27",
+  "reconciliation_status",
+  "reconciliation_submitted_date",
+  "reconciliation_completed_date",
+  "reconciliation_rejection_reason",
+  "accounting_entries_section",
+  "expense_booking_journal_entry",
+  "variance_journal_entry",
+  "column_break_34",
+  "reversal_journal_entry",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "basic_information_section",
+   "fieldtype": "Section Break",
+   "label": "Basic Information"
+  },
+  {
+   "fieldname": "employee",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Employee",
+   "options": "Employee",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "employee.employee_name",
+   "fieldname": "employee_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Employee Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company",
+   "reqd": 1
+  },
+  {
+   "default": "Today",
+   "fieldname": "posting_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Posting Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_5",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "event",
+   "fieldtype": "Link",
+   "label": "Event",
+   "options": "Event Registration"
+  },
+  {
+   "fieldname": "purpose",
+   "fieldtype": "Small Text",
+   "label": "Purpose",
+   "reqd": 1
+  },
+  {
+   "fieldname": "cost_center",
+   "fieldtype": "Link",
+   "label": "Cost Center",
+   "options": "Cost Center"
+  },
+  {
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Title",
+   "no_copy": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "expense_details_section",
+   "fieldtype": "Section Break",
+   "label": "Expense Details"
+  },
+  {
+   "fieldname": "expense_items",
+   "fieldtype": "Table",
+   "label": "Expense Items",
+   "options": "Imprest Expense Item",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_10",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "total_requested_amount",
+   "fieldtype": "Currency",
+   "label": "Total Requested Amount",
+   "read_only": 1
+  },
+  {
+   "fieldname": "approved_amount",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Approved Amount",
+   "read_only": 1,
+   "read_only_depends_on": "eval:doc.workflow_state != 'Pending Approval'"
+  },
+  {
+   "fieldname": "approval_section",
+   "fieldtype": "Section Break",
+   "label": "Approval Details"
+  },
+  {
+   "default": "Draft",
+   "fieldname": "workflow_state",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Draft\nPending Approval\nApproved\nRejected",
+   "read_only": 1
+  },
+  {
+   "fieldname": "approver",
+   "fieldtype": "Link",
+   "label": "Approver",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_15",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "approval_date",
+   "fieldtype": "Datetime",
+   "label": "Approval Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "approval_comments",
+   "fieldtype": "Small Text",
+   "label": "Approval Comments"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "disbursement_section",
+   "fieldtype": "Section Break",
+   "label": "Disbursement Details"
+  },
+  {
+   "fieldname": "source_account",
+   "fieldtype": "Link",
+   "label": "Source Account (Bank/Cash)",
+   "options": "Account",
+   "reqd": 1
+  },
+  {
+   "fieldname": "disbursement_date",
+   "fieldtype": "Date",
+   "label": "Disbursement Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_20",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "disbursement_journal_entry",
+   "fieldtype": "Link",
+   "label": "Disbursement Journal Entry",
+   "options": "Journal Entry",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "accounting_entry_created",
+   "fieldtype": "Check",
+   "label": "Accounting Entry Created",
+   "read_only": 1
+  },
+  {
+   "fieldname": "reconciliation_section",
+   "fieldtype": "Section Break",
+   "label": "Reconciliation"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "reconciliation_items",
+   "fieldtype": "Table",
+   "label": "Reconciliation Items (Upload Receipts)",
+   "options": "Reconciliation Item"
+  },
+  {
+   "fieldname": "section_break_24",
+   "fieldtype": "Section Break"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "total_reconciled_amount",
+   "fieldtype": "Currency",
+   "label": "Total Reconciled Amount",
+   "read_only": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "description": "Positive = Refund to company, Negative = Additional payment to employee",
+   "fieldname": "variance_amount",
+   "fieldtype": "Currency",
+   "label": "Variance Amount",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_27",
+   "fieldtype": "Column Break"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "reconciliation_status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Reconciliation Status",
+   "options": "\nPending Review\nPartially Reconciled\nCompleted\nRejected",
+   "read_only": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "reconciliation_submitted_date",
+   "fieldtype": "Datetime",
+   "label": "Reconciliation Submitted Date",
+   "read_only": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "reconciliation_completed_date",
+   "fieldtype": "Datetime",
+   "label": "Reconciliation Completed Date",
+   "read_only": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "depends_on": "eval:doc.reconciliation_status == 'Rejected'",
+   "fieldname": "reconciliation_rejection_reason",
+   "fieldtype": "Small Text",
+   "label": "Rejection Reason",
+   "read_only": 1
+  },
+  {
+   "collapsible": 1,
+   "collapsible_depends_on": "expense_booking_journal_entry",
+   "fieldname": "accounting_entries_section",
+   "fieldtype": "Section Break",
+   "label": "Accounting Entries"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "expense_booking_journal_entry",
+   "fieldtype": "Link",
+   "label": "Expense Booking Journal Entry",
+   "options": "Journal Entry",
+   "read_only": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "variance_journal_entry",
+   "fieldtype": "Link",
+   "label": "Variance Journal Entry",
+   "options": "Journal Entry",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_34",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "reversal_journal_entry",
+   "fieldtype": "Link",
+   "label": "Reversal Journal Entry",
+   "options": "Journal Entry",
+   "read_only": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Imprest Request",
+   "print_hide": 1,
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2026-02-05 19:23:54.360782",
+ "modified_by": "Administrator",
+ "module": "Imprest Management",
+ "name": "Imprest Request",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "amend": 1,
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "if_owner": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Employee",
+   "select": 1,
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Accounts Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Accounts User",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "title",
+ "track_changes": 1
+}

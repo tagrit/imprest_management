@@ -1,0 +1,144 @@
+[
+ {
+  "charts": [],
+  "content": "[{\"id\":\"H-1\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h5\\\"><b>IMPREST OVERVIEW</b></span>\",\"col\":12}},{\"id\":\"S-1\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Pending Approval\",\"col\":3}},{\"id\":\"S-2\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Approved\",\"col\":3}},{\"id\":\"S-3\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Pending Reconciliation\",\"col\":3}},{\"id\":\"S-4\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Completed\",\"col\":3}},{\"id\":\"SP-1\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"H-2\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h6\\\"><b>Quick Access</b></span>\",\"col\":12}},{\"id\":\"C-1\",\"type\":\"card\",\"data\":{\"card_name\":\"Imprest Management\",\"col\":4}},{\"id\":\"C-2\",\"type\":\"card\",\"data\":{\"card_name\":\"Reports & Analytics\",\"col\":4}},{\"id\":\"C-3\",\"type\":\"card\",\"data\":{\"card_name\":\"Configuration\",\"col\":4}}]",
+  "docstatus": 0,
+  "doctype": "Workspace",
+  "icon": "accounting",
+  "indicator_color": "blue",
+  "is_standard": 1,
+  "public": 1,
+  "sequence_id": 11,
+  "label": "Imprest",
+  "module": "Imprest Management",
+  "name": "Imprest",
+  "title": "Imprest",
+  "shortcuts": [
+   {
+    "color": "Orange",
+    "label": "Pending Approval",
+    "link_to": "Imprest Request",
+    "stats_filter": "{\"workflow_state\": \"Pending Approval\", \"docstatus\": 0}",
+    "type": "DocType"
+   },
+   {
+    "color": "Green",
+    "label": "Approved",
+    "link_to": "Imprest Request",
+    "stats_filter": "{\"workflow_state\": \"Approved\", \"docstatus\": 1}",
+    "type": "DocType"
+   },
+   {
+    "color": "Yellow",
+    "label": "Pending Reconciliation",
+    "link_to": "Imprest Request",
+    "stats_filter": "{\"reconciliation_status\": [\"in\", [\"Pending Review\", \"Partially Reconciled\"]]}",
+    "type": "DocType"
+   },
+   {
+    "color": "Blue",
+    "label": "Completed",
+    "link_to": "Imprest Request",
+    "stats_filter": "{\"reconciliation_status\": \"Completed\"}",
+    "type": "DocType"
+   }
+  ],
+  "links": [
+   {
+    "label": "Imprest Management",
+    "link_type": "DocType",
+    "type": "Card Break"
+   },
+   {
+    "label": "New Imprest Request",
+    "link_to": "Imprest Request",
+    "link_type": "DocType",
+    "onboard": 1,
+    "type": "Link",
+    "description": "Create new imprest request"
+   },
+   {
+    "label": "Imprest Request List",
+    "link_to": "Imprest Request",
+    "link_type": "DocType",
+    "type": "Link",
+    "description": "View all imprest requests"
+   },
+   {
+    "label": "Pending Approvals",
+    "link_to": "Imprest Request",
+    "link_type": "DocType",
+    "type": "Link",
+    "description": "Requests awaiting approval",
+    "custom_filters": "{\"workflow_state\": \"Pending Approval\"}"
+   },
+   {
+    "label": "My Imprest Requests",
+    "link_to": "Imprest Request",
+    "link_type": "DocType",
+    "type": "Link",
+    "description": "View your imprest requests"
+   },
+   {
+    "label": "Pending Reconciliations",
+    "link_to": "Imprest Request",
+    "link_type": "DocType",
+    "type": "Link",
+    "description": "Items awaiting reconciliation",
+    "custom_filters": "{\"reconciliation_status\": [\"in\", [\"Pending Review\", \"Partially Reconciled\"]]}"
+   },
+   {
+    "label": "Reports & Analytics",
+    "link_type": "DocType",
+    "type": "Card Break"
+   },
+   {
+    "label": "Imprest Summary Report",
+    "link_to": "query-report/Imprest%20Summary%20Report?from_date=2026-01-01&to_date=2026-02-01",
+    "link_type": "Page",
+    "type": "Link",
+    "description": "Overview of all imprest activities"
+   },
+   {
+    "label": "Event-wise Imprest Report",
+    "link_to": "Event-wise Imprest Report",
+    "link_type": "Report",
+    "type": "Link",
+    "description": "Imprest breakdown by event"
+   },
+   {
+    "label": "Imprest Expense Category Report",
+    "link_to": "imprest-expense-category/view/report",
+    "link_type": "Page",
+    "type": "Link",
+    "description": "Overview of Imprest categories and mapped accounts"
+   },
+   {
+    "label": "Configuration",
+    "link_type": "DocType",
+    "type": "Card Break"
+   },
+   {
+    "label": "Imprest Expense Category",
+    "link_to": "Imprest Expense Category",
+    "link_type": "DocType",
+    "type": "Link",
+    "description": "Manage expense categories"
+   },
+   {
+    "label": "Imprest Management Settings",
+    "link_to": "Imprest Management Settings",
+    "link_type": "DocType",
+    "type": "Link",
+    "description": "Configure imprest settings"
+   },
+   {
+    "label": "Journal Entry",
+    "link_to": "Journal Entry",
+    "link_type": "DocType",
+    "type": "Link",
+    "description": "View accounting entries"
+   }
+  ]
+ }
+]

@@ -1,0 +1,135 @@
+{
+ "actions": [],
+ "creation": "2026-01-29 10:00:00",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "accounts_section",
+  "employee_advance_parent_account",
+  "default_source_account",
+  "column_break_4",
+  "default_company",
+  "default_cost_center",
+  "notifications_section",
+  "finance_manager_email",
+  "send_approval_notifications",
+  "column_break_9",
+  "send_reconciliation_notifications",
+  "approval_settings_section",
+  "auto_approve_threshold",
+  "require_manager_approval"
+ ],
+ "fields": [
+  {
+   "fieldname": "accounts_section",
+   "fieldtype": "Section Break",
+   "label": "Account Settings"
+  },
+  {
+   "description": "Parent account under which employee advance accounts will be created",
+   "fieldname": "employee_advance_parent_account",
+   "fieldtype": "Link",
+   "label": "Employee Advance Parent Account",
+   "options": "Account",
+   "reqd": 1
+  },
+  {
+   "fieldname": "default_source_account",
+   "fieldtype": "Link",
+   "label": "Default Source Account (Bank/Cash)",
+   "options": "Account"
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "default_company",
+   "fieldtype": "Link",
+   "label": "Default Company",
+   "options": "Company"
+  },
+  {
+   "fieldname": "default_cost_center",
+   "fieldtype": "Link",
+   "label": "Default Cost Center",
+   "options": "Cost Center"
+  },
+  {
+   "fieldname": "notifications_section",
+   "fieldtype": "Section Break",
+   "label": "Notification Settings"
+  },
+  {
+   "fieldname": "finance_manager_email",
+   "fieldtype": "Data",
+   "label": "Finance Manager Email",
+   "options": "Email"
+  },
+  {
+   "default": "1",
+   "fieldname": "send_approval_notifications",
+   "fieldtype": "Check",
+   "label": "Send Approval Notifications"
+  },
+  {
+   "fieldname": "column_break_9",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "1",
+   "fieldname": "send_reconciliation_notifications",
+   "fieldtype": "Check",
+   "label": "Send Reconciliation Notifications"
+  },
+  {
+   "fieldname": "approval_settings_section",
+   "fieldtype": "Section Break",
+   "label": "Approval Settings"
+  },
+  {
+   "description": "Imprest requests below this amount can be auto-approved",
+   "fieldname": "auto_approve_threshold",
+   "fieldtype": "Currency",
+   "label": "Auto Approve Threshold"
+  },
+  {
+   "default": "1",
+   "fieldname": "require_manager_approval",
+   "fieldtype": "Check",
+   "label": "Require Manager Approval"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "issingle": 1,
+ "links": [],
+ "modified": "2026-01-29 10:00:00",
+ "modified_by": "Administrator",
+ "module": "Imprest Management",
+ "name": "Imprest Management Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "Accounts Manager",
+   "share": 1
+  }
+ ],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}
