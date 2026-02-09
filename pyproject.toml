@@ -1,0 +1,11 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "imprest_management"
+version = "1.0.0"
+description = "Complete imprest (cash advance) management system for Frappe/ERPNext"
+authors = [{name = "Tagrit", email = "info@tagrit.com"}]
+requires-python = ">=3.10"
+dependencies = ["frappe"]
