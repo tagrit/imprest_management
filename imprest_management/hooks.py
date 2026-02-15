@@ -192,15 +192,15 @@ after_install = "imprest_management.setup.install.after_install"
 # ------------------------------------
 
 # Custom fields that will be added to existing doctypes
-fixtures = [
-    "fixtures/workflow_state.json",
-    "fixtures/workflow.json",
-    {
-        "dt": "Custom Field",
-        "filters": [
-            ["name", "in", [
-                "Journal Entry-imprest_request"
-            ]]
-        ]
-    }
-]
+# fixtures = [
+#     "fixtures/workflow_state.json",
+#     "fixtures/workflow.json",
+#     {
+#         "dt": "Custom Field",
+#         "filters": [
+#             ["name", "in", [
+#                 "Journal Entry-imprest_request"
+#             ]]
+#         ]
+#     }
+# ]
